@@ -5,7 +5,6 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.model.Pizza.AjouterPizzaService;
-import fr.pizzeria.model.Pizza.Pizza;
 import fr.pizzeria.model.Pizza.PizzaMemDao;
 
 public class PizeriaAdminConsoleApp {
