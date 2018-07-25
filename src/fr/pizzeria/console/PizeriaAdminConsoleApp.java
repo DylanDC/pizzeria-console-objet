@@ -5,7 +5,10 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.model.Pizza.AjouterPizzaService;
+import fr.pizzeria.model.Pizza.ListerPizzasService;
+import fr.pizzeria.model.Pizza.ModifierPizzaService;
 import fr.pizzeria.model.Pizza.PizzaMemDao;
+import fr.pizzeria.model.Pizza.SupprimerPizzaService;
 
 public class PizeriaAdminConsoleApp {
 
@@ -15,17 +18,7 @@ public class PizeriaAdminConsoleApp {
 
 		
 
-		//List pizza "ArrayList"
-		//		ArrayList <Pizza> pizzas = new ArrayList<Pizza>();
-		//		//List ajout de mes valeurs liste = new ArrayList();
-		//		pizzas.add(new Pizza(0,"PEP","Pépéroni",12.5));
-		//		pizzas.add(new Pizza(1,"MAR","Margherita",14));
-		//		pizzas.add(new Pizza(2,"REIN","La Reine",11.5));
-		//		pizzas.add(new Pizza(3,"FRO","La 4 fromages",12));
-		//		pizzas.add(new Pizza(4,"CAN","La cannibale",12.5));
-		//		pizzas.add(new Pizza(5,"SAV","La savoyarde",13));
-		//		pizzas.add(new Pizza(6,"ORI","L'orientale",13.5));
-		//		pizzas.add(new Pizza(7,"IND","L'indienne",14));
+		
 
 
 		int choix = 0;
@@ -42,7 +35,8 @@ public class PizeriaAdminConsoleApp {
 
 			switch (choix){
 			case 1:
-				
+				ListerPizzasService listpizza = new ListerPizzasService();
+				listpizza.executeUC(scanner, dao);
 				
 				//listing des pizzas
 //				System.out.println("Liste des pizzas");
@@ -73,7 +67,8 @@ public class PizeriaAdminConsoleApp {
 				break;
 
 			case 3:
-				
+				ModifierPizzaService modifPizza= new ModifierPizzaService();
+				modifPizza.executeUC(scanner, dao);
 //				System.out.println("Mise à jour d’une pizza");
 //				pizzas = dao.findAllPizzas();
 //				for (int i = 0;i<pizzas.length;i++){
@@ -97,6 +92,8 @@ public class PizeriaAdminConsoleApp {
 				break;
 			case 4: 
 				
+				SupprimerPizzaService supPizza = new SupprimerPizzaService();
+				supPizza.executeUC(scanner, dao);
 //								System.out.println("Suppression d’une pizza");
 //								System.out.println("Veuillez choisir le code de la pizza à supprimer :");
 //								String fcode = scanner.next();

@@ -1,7 +1,10 @@
 package fr.pizzeria.model.Pizza;
+
+import java.util.ArrayList;
+
 public interface IPizzaDao {
 
-		Pizza[] findAllPizzas();
+	 ArrayList<Pizza> findAllPizzas();
 
 		void saveNewPizza(Pizza pizza);
 

@@ -1,5 +1,6 @@
 package fr.pizzeria.model.Pizza;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ModifierPizzaService extends MenuService {
@@ -7,11 +8,11 @@ public class ModifierPizzaService extends MenuService {
 	@Override
 	public void executeUC(Scanner scanner, PizzaMemDao dao) {
 		System.out.println("Mise à jour d’une pizza");
-		Pizza[] pizzas = dao.findAllPizzas();
-		for (int i = 0;i<pizzas.length;i++){
-			if (pizzas[i]!=null){
-				System.out.println(pizzas[i]);	
-			}
+		ArrayList <Pizza> pizzas = dao.findAllPizzas();
+		for (int i = 0;i<pizzas.size();i++){
+			
+				System.out.println(pizzas.get(i));	
+			
 		}
 
 		System.out.println("Veuillez choisir le code de la pizza à modifier ! ");

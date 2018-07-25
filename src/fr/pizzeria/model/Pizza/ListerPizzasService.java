@@ -1,5 +1,6 @@
 package fr.pizzeria.model.Pizza;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ListerPizzasService extends MenuService {
@@ -9,12 +10,12 @@ public class ListerPizzasService extends MenuService {
 		//listing des pizzas
 		System.out.println("Liste des pizzas");
 
-		Pizza[] pizzas = dao.findAllPizzas();
-		for (int i = 0;i<pizzas.length;i++){
-			if(pizzas[i]!=null){
-				System.out.println(pizzas[i]);
-			}
-		}
+		ArrayList<Pizza> pizzas = dao.findAllPizzas();
+		
+			
+				System.out.println(pizzas);
+			
+		
 		
 		
 		
