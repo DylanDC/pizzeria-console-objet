@@ -1,30 +1,26 @@
 package fr.pizzeria.console;
 
+import java.sql.SQLException;
 //import java.util.ArrayList;
 //import java.util.List;
 import java.util.Scanner;
 
-import fr.pizzeria.model.Pizza.AjouterPizzaService;
-import fr.pizzeria.model.Pizza.ListerPizzasService;
-import fr.pizzeria.model.Pizza.ModifierPizzaService;
-import fr.pizzeria.model.Pizza.PizzaMemDao;
-import fr.pizzeria.model.Pizza.SupprimerPizzaService;
+import fr.pizzeria.model.AjouterPizzaService;
+import fr.pizzeria.model.ListerPizzasService;
+import fr.pizzeria.model.ModifierPizzaService;
+import fr.pizzeria.model.PizzaBddDao;
+import fr.pizzeria.model.SupprimerPizzaService;
 
 public class PizeriaAdminConsoleApp {
 
-	public static void main(String[] args) {
-		Scanner scanner= new Scanner(System.in);
-		PizzaMemDao dao = new PizzaMemDao();
-
-		
-
-		
-
+	public static void main(String[] args) throws SQLException {
+		Scanner scanner = new Scanner(System.in);
+		PizzaBddDao dao = new PizzaBddDao();
 
 		int choix = 0;
-		do{
-			//MENU Principale
-			System.out.println( "***** Pizzeria Administration*****");
+		do {
+			// MENU Principale
+			System.out.println("***** Pizzeria Administration*****");
 			System.out.println("1. Lister les pizzas");
 			System.out.println("2. Ajouter une pizza");
 			System.out.println("3.Mettre à jour une pizza");
@@ -33,99 +29,92 @@ public class PizeriaAdminConsoleApp {
 
 			choix = scanner.nextInt();
 
-			switch (choix){
+			switch (choix) {
 			case 1:
 				ListerPizzasService listpizza = new ListerPizzasService();
 				listpizza.executeUC(scanner, dao);
-				
-				//listing des pizzas
-//				System.out.println("Liste des pizzas");
-//
-//				Pizza[] pizzas = dao.findAllPizzas();
-//				for (int i = 0;i<pizzas.length;i++){
-//					if(pizzas[i]!=null){
-//						System.out.println(pizzas[i]);
-//					}
-//				}
-				
-				
+
+				// listing des pizzas
+				// System.out.println("Liste des pizzas");
+				//
+				// Pizza[] pizzas = dao.findAllPizzas();
+				// for (int i = 0;i<pizzas.length;i++){
+				// if(pizzas[i]!=null){
+				// System.out.println(pizzas[i]);
+				// }
+				// }
+
 				break;
 			case 2:
 				AjouterPizzaService ajService = new AjouterPizzaService();
 				ajService.executeUC(scanner, dao);
-				//ajout d'une nouvelle pizza
-//				System.out.println("Ajout d’une nouvelle pizza");
-//				System.out.println("Veuillez saisir le code : ");
-//				String code = scanner.next();
-//				System.out.println("Veuillez saisir le nom (sans espace) :");
-//				String libelle = scanner.next();
-//				System.out.println("Veuillez saisir le prix :");
-//				double prix = scanner.nextDouble();
-//
-//				dao.saveNewPizza(new Pizza (0,code,libelle,prix));
+				// ajout d'une nouvelle pizza
+				// System.out.println("Ajout d’une nouvelle pizza");
+				// System.out.println("Veuillez saisir le code : ");
+				// String code = scanner.next();
+				// System.out.println("Veuillez saisir le nom (sans espace) :");
+				// String libelle = scanner.next();
+				// System.out.println("Veuillez saisir le prix :");
+				// double prix = scanner.nextDouble();
+				//
+				// dao.saveNewPizza(new Pizza (0,code,libelle,prix));
 
 				break;
 
 			case 3:
-				ModifierPizzaService modifPizza= new ModifierPizzaService();
+				ModifierPizzaService modifPizza = new ModifierPizzaService();
 				modifPizza.executeUC(scanner, dao);
-//				System.out.println("Mise à jour d’une pizza");
-//				pizzas = dao.findAllPizzas();
-//				for (int i = 0;i<pizzas.length;i++){
-//					if (pizzas[i]!=null){
-//						System.out.println(pizzas[i]);	
-//					}
-//				}
-//
-//				System.out.println("Veuillez choisir le code de la pizza à modifier ! ");
-//				String pcode = scanner.next();
-//				
-//				System.out.println("Veuillez saisir le nouveau Code");
-//				String newcode = scanner.next();
-//				System.out.println("Veuillez saisir le nouveau nom (sans espace)");
-//				String newlibelle = scanner.next();
-//				System.out.println("Veuillez saisir le nouveau prix ");
-//				double newprix = scanner.nextDouble();
-//				
-//				dao.updatePizza(pcode, new Pizza(0,newcode,newlibelle,newprix));
-				
+				// System.out.println("Mise à jour d’une pizza");
+				// pizzas = dao.findAllPizzas();
+				// for (int i = 0;i<pizzas.length;i++){
+				// if (pizzas[i]!=null){
+				// System.out.println(pizzas[i]);
+				// }
+				// }
+				//
+				// System.out.println("Veuillez choisir le code de la pizza à
+				// modifier ! ");
+				// String pcode = scanner.next();
+				//
+				// System.out.println("Veuillez saisir le nouveau Code");
+				// String newcode = scanner.next();
+				// System.out.println("Veuillez saisir le nouveau nom (sans
+				// espace)");
+				// String newlibelle = scanner.next();
+				// System.out.println("Veuillez saisir le nouveau prix ");
+				// double newprix = scanner.nextDouble();
+				//
+				// dao.updatePizza(pcode, new
+				// Pizza(0,newcode,newlibelle,newprix));
+
 				break;
-			case 4: 
-				
+			case 4:
+
 				SupprimerPizzaService supPizza = new SupprimerPizzaService();
 				supPizza.executeUC(scanner, dao);
-//								System.out.println("Suppression d’une pizza");
-//								System.out.println("Veuillez choisir le code de la pizza à supprimer :");
-//								String fcode = scanner.next();
-//								dao.deletePizza(fcode);
-				//				for(int i = 0; i<pizzas.length;i++) {
-				//					if(pizzas[i].getCode().equals(fcode)) {
+				// System.out.println("Suppression d’une pizza");
+				// System.out.println("Veuillez choisir le code de la pizza à
+				// supprimer :");
+				// String fcode = scanner.next();
+				// dao.deletePizza(fcode);
+				// for(int i = 0; i<pizzas.length;i++) {
+				// if(pizzas[i].getCode().equals(fcode)) {
 				//
 				//
-				//						pizzas[i] = null;
-				//						break;
-				//					}
+				// pizzas[i] = null;
+				// break;
+				// }
 				//
 				//
-				//				}
+				// }
 				break;
-				
+
 			case 99:
 				System.out.println("Aurevoir");
 				break;
 			}
 
-		}while( choix != 99  );	
-
-
-
-
-
-
-
-
+		} while (choix != 99);
 
 	}
 }
-
-
