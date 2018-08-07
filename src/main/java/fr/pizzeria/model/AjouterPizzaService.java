@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AjouterPizzaService extends MenuService {
 
 	@Override
-	public void executeUC(Scanner scanner, PizzaBddDao dao) throws SQLException {
+	public void executeUC(Scanner scanner, PizzaJpaDao dao) throws SQLException {
 		// ajout d'une nouvelle pizza
 		System.out.println("Ajout d’une nouvelle pizza");
 		System.out.println("Veuillez saisir le code : ");

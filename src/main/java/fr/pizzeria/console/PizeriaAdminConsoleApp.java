@@ -8,14 +8,14 @@ import java.util.Scanner;
 import fr.pizzeria.model.AjouterPizzaService;
 import fr.pizzeria.model.ListerPizzasService;
 import fr.pizzeria.model.ModifierPizzaService;
-import fr.pizzeria.model.PizzaBddDao;
+import fr.pizzeria.model.PizzaJpaDao;
 import fr.pizzeria.model.SupprimerPizzaService;
 
 public class PizeriaAdminConsoleApp {
 
 	public static void main(String[] args) throws SQLException {
 		Scanner scanner = new Scanner(System.in);
-		PizzaBddDao dao = new PizzaBddDao();
+		PizzaJpaDao dao = new PizzaJpaDao();
 
 		int choix = 0;
 		do {

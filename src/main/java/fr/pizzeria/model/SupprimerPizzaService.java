@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class SupprimerPizzaService extends MenuService {
 
 	@Override
-	public void executeUC(Scanner scanner, PizzaBddDao dao) throws SQLException {
+	public void executeUC(Scanner scanner, PizzaJpaDao dao) throws SQLException {
 		// TODO Auto-generated method stub
 
 		System.out.println("Suppression d’une pizza");
