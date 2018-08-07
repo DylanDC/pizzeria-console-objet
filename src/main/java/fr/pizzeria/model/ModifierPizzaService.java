@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ModifierPizzaService extends MenuService {
 
 	@Override
-	public void executeUC(Scanner scanner, PizzaJpaDao dao) throws SQLException {
+	public void executeUC(Scanner scanner, IPizzaDao dao) throws SQLException {
 		System.out.println("Mise à jour d’une pizza");
 		ArrayList<Pizza> pizzas = dao.findAllPizzas();
 		for (int i = 0; i < pizzas.size(); i++) {

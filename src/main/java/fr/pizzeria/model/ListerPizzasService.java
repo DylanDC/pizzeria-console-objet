@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ListerPizzasService extends MenuService {
 
 	@Override
-	public void executeUC(Scanner scanner, PizzaJpaDao dao) throws SQLException {
+	public void executeUC(Scanner scanner, IPizzaDao dao) throws SQLException {
 		// listing des pizzas
 		try {
 			System.out.println("Liste des pizzas");

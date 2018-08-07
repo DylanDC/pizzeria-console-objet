@@ -5,6 +5,6 @@ import java.util.Scanner;
 
 public abstract class MenuService {
 
-	public abstract void executeUC(Scanner scanner, PizzaJpaDao dao) throws SQLException;
+	public abstract void executeUC(Scanner scanner, IPizzaDao dao) throws SQLException;
 
 }
