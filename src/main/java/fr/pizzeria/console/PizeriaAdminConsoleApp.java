@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import fr.pizzeria.model.AjouterPizzaService;
+import fr.pizzeria.model.IPizzaDao;
 import fr.pizzeria.model.ListerPizzasService;
 import fr.pizzeria.model.ModifierPizzaService;
 import fr.pizzeria.model.PizzaJpaDao;
@@ -15,7 +16,7 @@ public class PizeriaAdminConsoleApp {
 
 	public static void main(String[] args) throws SQLException {
 		Scanner scanner = new Scanner(System.in);
-		PizzaJpaDao dao = new PizzaJpaDao();
+		IPizzaDao dao = new PizzaJpaDao();
 
 		int choix = 0;
 		do {
@@ -34,79 +35,23 @@ public class PizeriaAdminConsoleApp {
 				ListerPizzasService listpizza = new ListerPizzasService();
 				listpizza.executeUC(scanner, dao);
 
-				// listing des pizzas
-				// System.out.println("Liste des pizzas");
-				//
-				// Pizza[] pizzas = dao.findAllPizzas();
-				// for (int i = 0;i<pizzas.length;i++){
-				// if(pizzas[i]!=null){
-				// System.out.println(pizzas[i]);
-				// }
-				// }
-
 				break;
 			case 2:
 				AjouterPizzaService ajService = new AjouterPizzaService();
 				ajService.executeUC(scanner, dao);
-				// ajout d'une nouvelle pizza
-				// System.out.println("Ajout d’une nouvelle pizza");
-				// System.out.println("Veuillez saisir le code : ");
-				// String code = scanner.next();
-				// System.out.println("Veuillez saisir le nom (sans espace) :");
-				// String libelle = scanner.next();
-				// System.out.println("Veuillez saisir le prix :");
-				// double prix = scanner.nextDouble();
-				//
-				// dao.saveNewPizza(new Pizza (0,code,libelle,prix));
 
 				break;
 
 			case 3:
 				ModifierPizzaService modifPizza = new ModifierPizzaService();
 				modifPizza.executeUC(scanner, dao);
-				// System.out.println("Mise à jour d’une pizza");
-				// pizzas = dao.findAllPizzas();
-				// for (int i = 0;i<pizzas.length;i++){
-				// if (pizzas[i]!=null){
-				// System.out.println(pizzas[i]);
-				// }
-				// }
-				//
-				// System.out.println("Veuillez choisir le code de la pizza à
-				// modifier ! ");
-				// String pcode = scanner.next();
-				//
-				// System.out.println("Veuillez saisir le nouveau Code");
-				// String newcode = scanner.next();
-				// System.out.println("Veuillez saisir le nouveau nom (sans
-				// espace)");
-				// String newlibelle = scanner.next();
-				// System.out.println("Veuillez saisir le nouveau prix ");
-				// double newprix = scanner.nextDouble();
-				//
-				// dao.updatePizza(pcode, new
-				// Pizza(0,newcode,newlibelle,newprix));
 
 				break;
 			case 4:
 
 				SupprimerPizzaService supPizza = new SupprimerPizzaService();
 				supPizza.executeUC(scanner, dao);
-				// System.out.println("Suppression d’une pizza");
-				// System.out.println("Veuillez choisir le code de la pizza à
-				// supprimer :");
-				// String fcode = scanner.next();
-				// dao.deletePizza(fcode);
-				// for(int i = 0; i<pizzas.length;i++) {
-				// if(pizzas[i].getCode().equals(fcode)) {
-				//
-				//
-				// pizzas[i] = null;
-				// break;
-				// }
-				//
-				//
-				// }
+
 				break;
 
 			case 99:
