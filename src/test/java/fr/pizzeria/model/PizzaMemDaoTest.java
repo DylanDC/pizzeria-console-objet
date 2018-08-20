@@ -1,17 +1,11 @@
 package fr.pizzeria.model;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-
-
-
 public class PizzaMemDaoTest {
-
-	
 
 	@Test
 	public void testFindAllPizzas() {
@@ -26,20 +20,18 @@ public class PizzaMemDaoTest {
 		Pizza pizza = new Pizza(0, "ABC", "test", 12);
 		testSave.saveNewPizza(pizza);
 		assertEquals(9, testSave.findAllPizzas().size());
-			
-		
+
 	}
 
 	@Test
 	public void testUpdatePizza() {
-		
+
 		PizzaMemDao testupdate = new PizzaMemDao();
 		assertEquals(8, testupdate.findAllPizzas().size());
-		Pizza pizza = new Pizza(0,"new", "news",10);
+		Pizza pizza = new Pizza(0, "new", "news", 10);
 		testupdate.updatePizza("123", pizza);
 		assertEquals(8, testupdate.findAllPizzas().size());
-		
-		
+
 	}
 
 	@Test
@@ -55,11 +47,9 @@ public class PizzaMemDaoTest {
 		PizzaMemDao dao = new PizzaMemDao();
 		Pizza p = dao.findPizzaByCode("PEP");
 		assertEquals("PEP", p.getCode());
-		
+
 		p = dao.findPizzaByCode("Pokpok");
 		assertNull(p);
 	}
-
-	
 
 }
